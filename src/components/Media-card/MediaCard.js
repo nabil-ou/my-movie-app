@@ -1,22 +1,25 @@
 import React from 'react'
 import Image from "next/image";
 import styles from './MediaCard.module.scss'
+import Link from "next/link";
 
-const MediaCard = () => {
+const MediaCard = ({mediaId}) => {
     return (
         <div className={styles.card}>
-            <div className={styles.image}>
-                <Image
-                    src='https://image.tmdb.org/t/p/w500/hYQs5RPHiWctoYqvI8baHiIqdd8.jpg'
-                    alt='media title'
-                    fill
-                />
-            </div>
-            <div className={styles.content}>
-                <h2>Titre de film</h2>
-                <p>Le 01/03/2023</p>
+            <Link href={`/movies/${mediaId}`}>
+                <div className={styles.image}>
+                    <Image
+                        src='https://image.tmdb.org/t/p/w500/hYQs5RPHiWctoYqvI8baHiIqdd8.jpg'
+                        alt='media title'
+                        fill
+                    />
+                </div>
+                <div className={styles.content}>
+                    <h2>Titre de film</h2>
+                    <p>Le 01/03/2023</p>
 
-            </div>
+                </div>
+            </Link>
         </div>
     )
 }
