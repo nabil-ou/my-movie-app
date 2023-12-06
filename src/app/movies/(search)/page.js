@@ -1,8 +1,9 @@
 import React from 'react'
+import SearchResults from "@/app/movies/(search)/SearchResults";
 
-const MoviesPage = () => {
+const MoviesPage = ({ searchParams}) => {
     return (
-        <div>MoviesPage</div>
+        <SearchResults searchParams={searchParams}/>
     )
 }
 export default MoviesPage
