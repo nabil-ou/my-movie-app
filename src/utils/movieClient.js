@@ -6,9 +6,9 @@ export const getMovieByPath = (path, params = [], language = "fr-FR") => {
     url.searchParams.append("language", language);
     params
         .filter((param) => param.value)
-        .forEach(param => {
-        url.searchParams.append(param.key, param.value)
-    })
+        .forEach((param) => {
+            url.searchParams.append(param.key, param.value);
+        });
 
     return fetch(url).then((res) => res.json());
 };

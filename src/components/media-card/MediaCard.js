@@ -4,9 +4,6 @@ import styles from "./MediaCard.module.scss";
 import Link from "next/link";
 
 const MediaCard = ({ media }) => {
-
-    let vote = media.vote_average
-    let roundedVote = vote.toFixed(1)
     return (
         <div className={styles.card}>
             <Link href={`/movies/${media.id}`}>
@@ -18,7 +15,7 @@ const MediaCard = ({ media }) => {
                     />
                 </div>
                 <div className={styles.content}>
-                    <p className={styles.vote}>{roundedVote}</p>
+                    <p className={styles.vote}>{media.vote_average}</p>
                     <h3>{media.title}</h3>
                     <p>Le {new Date(media.release_date).toLocaleDateString("fr-FR")}</p>
                 </div>

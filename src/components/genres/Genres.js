@@ -1,10 +1,9 @@
-import React from 'react'
-import {getMovieByPath} from "@/utils/movieClient";
+import { getMovieByPath } from "@/utils/movieClient";
 import Link from "next/link";
-import styles from "./Genres.module.scss"
+import styles from "./Genres.module.scss";
 
 const Genres = async () => {
-    const {genres} = await getMovieByPath("/genre/movie/list")
+    const { genres } = await getMovieByPath("/genre/movie/list");
     return (
         <div>
             <h2>Parcourir par genres</h2>
@@ -18,7 +17,7 @@ const Genres = async () => {
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Genres
+export default Genres;

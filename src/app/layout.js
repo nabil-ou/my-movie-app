@@ -11,10 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-         <body className={`${roboto.variable} ${montserrat.variable}`}>
-             <Header />
-             <main>{children}</main>
-         </body>
+        <body className={`${roboto.variable} ${montserrat.variable}`}>
+        <Header />
+        <main>{children}</main>
+        </body>
         </html>
     );
 }
