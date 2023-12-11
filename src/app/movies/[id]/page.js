@@ -2,6 +2,8 @@ import React from "react";
 import {getMovieByPath} from "@/utils/movieClient";
 import {notFound} from "next/navigation";
 import MovieDetails from "@/components/movie-details/MovieDetails";
+import SimilarMovies from "@/components/similar-movies/SimilarMovies";
+import {Suspense} from "react";
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
@@ -15,6 +17,10 @@ const MovieIdPage = async ({ params }) => {
     return (
         <div>
             <MovieDetails movie={movie} />
+            <Suspense fallback={<p>Chargement ...</p>} >
+                <SimilarMovies movieId={movie.id} />
+            </Suspense>
+
         </div>
     );
 };
