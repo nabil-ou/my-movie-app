@@ -1,32 +1,30 @@
-"use client";
-import styles from "./LanguageSelector.module.scss";
+"use client"
 
-import { availableLocales } from "@/utils/i18n";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {availableLocales} from "@/utils/i18n";
+import styles from "./LanguageSelector.module.scss"
 import {useCurrentLanguage} from "@/hooks/useCurrentLanguage";
-
+import {useEffect, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 const LanguageSelector = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const currentLanguage = useCurrentLanguage();
+    const [isOpen, setIsOpen] = useState(false)
+    const currentLangugae = useCurrentLanguage();
 
     useEffect(() => {
-        setIsOpen(false);
-    }, [currentLanguage]);
-
+        setIsOpen(false)
+    },[currentLangugae])
     return (
-        <div className={`${styles.selector} ${isOpen ? styles.enabled : ""}`}>
+        <div className={`${styles.selector} ${isOpen ? styles.enebled : ""}`}>
             <p onClick={() => setIsOpen((currOpen) => !currOpen)}>
-                {currentLanguage}
+                {currentLangugae}{" "}
                 <span>
-          <FontAwesomeIcon icon={faChevronDown} />
-        </span>
+                    <FontAwesomeIcon icon={faChevronDown}/>
+                </span>
             </p>
             <ul>
                 {availableLocales
-                    .filter((locale) => locale !== currentLanguage)
+                    .filter((locale) => locale != currentLangugae)
                     .map((locale) => (
                         <li key={locale}>
                             <Link href={`/${locale}`}>{locale}</Link>
@@ -34,7 +32,6 @@ const LanguageSelector = () => {
                     ))}
             </ul>
         </div>
-    );
-};
-
-export default LanguageSelector;
+    )
+}
+export default LanguageSelector
